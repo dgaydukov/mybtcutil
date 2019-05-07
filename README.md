@@ -35,12 +35,11 @@ npm start
 ### Built With
 
 * [bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib) - basic and most used library
-* [bip39](https://github.com/bitcoinjs/bip39) - 
-* [hdkey]() - 
-* [secp256k1]() - 
-* [coinselect]() - 
-* [bip38]() - 
-* [wif]() - 
+* [bip39](https://github.com/bitcoinjs/bip39) - generate mnemonic code and seed (For HD wallets)
+* [hdkey](https://github.com/cryptocoinjs/hdkey) - generate HD keys and derive any private keys and addresses (BIP32)
+* [secp256k1](https://github.com/cryptocoinjs/secp256k1-node) - base library to work with elyptic curve (used to sign/verify messages)
+* [coinselect](https://github.com/bitcoinjs/coinselect) - calculate what UTXO to use for particular transaction
+* [bip38](https://github.com/bitcoinjs/bip38) - encrypt private key with password
 
 
 
