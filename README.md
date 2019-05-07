@@ -9,7 +9,9 @@
 
 ### Description
 
-This project is a utility to build any bitcoin app. 
+This project is a utility to build any bitcoin app. Basically it's a typescript wrap up around famous libraries (see the full list below).
+The problme is, that there are 4-5 top libraries, but any of them has some limitations, and what's more important all of them are pure js. So they don't have ts definitions.
+This is a little inconvenient, that's why I have created this library.
 
 
 ### Installation
@@ -32,7 +34,13 @@ npm start
 
 ### Built With
 
-* [Node.js v10.15.0](https://nodejs.org/fr/blog/release/v10.15.0/)
+* [bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib) - basic and most used library
+* [bip39](https://github.com/bitcoinjs/bip39) - 
+* [hdkey]() - 
+* [secp256k1]() - 
+* [coinselect]() - 
+* [bip38]() - 
+* [wif]() - 
 
 
 
