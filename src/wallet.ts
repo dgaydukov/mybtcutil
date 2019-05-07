@@ -7,12 +7,12 @@ const bip39 = require('bip39');
 const HDKey = require('hdkey');
 const secp256k1 = require('secp256k1')
 const coinSelect = require('coinselect');
-import { ICryptoWallet } from './interfaces';
+import { ICryptoWallet } from './interface';
 const bip38 = require('bip38');
 const wif = require('wif');
 
 
-export default class BtcStorage implements ICryptoWallet {
+export default class BtcWallet implements ICryptoWallet {
 
     constructor() {
         //this.checkSign();
