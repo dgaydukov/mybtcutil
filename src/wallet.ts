@@ -7,12 +7,12 @@ const bip39 = require('bip39');
 const HDKey = require('hdkey');
 const secp256k1 = require('secp256k1')
 const coinSelect = require('coinselect');
-import { ICryptoStorage } from './interfaces';
+import { ICryptoWallet } from './interfaces';
 const bip38 = require('bip38');
 const wif = require('wif');
 
 
-export default class BtcStorage implements ICryptoStorage {
+export default class BtcStorage implements ICryptoWallet {
 
     constructor() {
         //this.checkSign();
@@ -48,33 +48,6 @@ export default class BtcStorage implements ICryptoStorage {
         const privateKey = keyPair.privateKey.toString('hex');
         const address = this.getAddressFromPrivateKey(privateKey);
         if(wallet.address !== address){
-            throw new Error(`Decrypted private key doesn't correspond to provided address. Your address: ${wallet.address}, decrypted address: ${address}`);
-        }
-        return privateKey;
-    }
-
-    /**
-     * Simple encryption of any arbituary text, in our case we encrypting private key, 32 byte hex number
-     * This is undesired method for production, it's listed here just as example
-     * 
-     * @param privateKey {string} - private key in hex format
-     * @param password {string} - password to encrypt private key
-     */
-    encryptPK(privateKey, password){
-        const address = this.getAddressFromPrivateKey(privateKey);
-        const enc = new Encryption();
-        const encryptedKey = enc.encrypt(privateKey, password);
-        return {
-            address,
-            encryptedKey,
-        };
-    }
-
-    decryptPK(wallet, password){
-        const enc = new Encryption();
-        const privateKey = enc.decrypt(wallet.encryptedKey, password);
-        const address = this.getAddressFromPrivateKey(privateKey);
-        if(address !== wallet.address){
             throw new Error(`Decrypted private key doesn't correspond to provided address. Your address: ${wallet.address}, decrypted address: ${address}`);
         }
         return privateKey;
@@ -174,8 +147,7 @@ export default class BtcStorage implements ICryptoStorage {
     }
 
     doublesha256(msg){
-        const enc = new Encryption();
-        return enc.sha256(enc.sha256(msg));
+        return '';
     }
 
     recoverPublicKey(msg, sig) {
