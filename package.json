@@ -15,6 +15,12 @@
   "author": "Dmitriy Gaydukov <gaydukov89@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "bip38": "2.0.2",
+    "bip39": "3.0.1",
+    "bitcoinjs-lib": "5.0.3",
+    "coinselect": "3.1.11",
+    "hdkey": "1.1.1",
+    "secp256k1": "3.6.2",
     "uuid": "3.3.2"
   },
   "devDependencies": {
