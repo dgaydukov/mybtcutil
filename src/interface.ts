@@ -6,22 +6,22 @@
  * Wallet.
  * Cause by default all bitcoin wallets use Wif as key format, we also export private key as hex string, just in case
  */
- export interface IWallet{
-     privateKey: string;
-     privateKeyHex: string;
-     publicKey: string;
-     address: string;
- }
+export interface IWallet {
+    privateKey: string;
+    privateKeyHex: string;
+    publicKey: string;
+    address: string;
+}
 
 
 
- export interface IHdWallet{
-     privateKey: string;
-     publicKey: string;
- }
+export interface IHdWallet {
+    masterPrivateKey: string;
+    masterPublicKey: string;
+}
 
 
- export interface IUtxo {
+export interface IUtxo {
     privateKey: string;
     address: string;
     value: string;

@@ -93,7 +93,8 @@ export default class BtcWallet implements ICryptoWallet {
         }
         const { address } = payments.p2pkh({ pubkey: wallet.publicKey })
         return {
-            privateKey: wallet.privateKey.toString('hex'),
+            privateKey: wallet.privateKey.toWIF,
+            privateKeyHex: wallet.privateKey.toString('hex'),
             publicKey: wallet.publicKey.toString('hex'),
             address,
         }

@@ -1,8 +1,8 @@
 import { assert } from 'chai';
-import BtcStorage from '../src';
+import BtcWallet from '../src';
 
 describe('Bitcoin test', ()=>{
-    const storage = new BtcStorage();
+    const storage = new BtcWallet();
     it('Should generate hd wallet', ()=>{
         const wallet = storage.generateHdWallet();
         assert.equal(wallet.masterPrivateKey.length, 111, 'Length of masterPrivateKey should be 111');
