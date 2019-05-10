@@ -10,6 +10,7 @@ const coinSelect = require('coinselect');
 import { ICryptoWallet } from './interface';
 const bip38 = require('bip38');
 const wif = require('wif');
+var crypto = require('crypto');
 
 
 export default class BtcWallet implements ICryptoWallet {
@@ -148,7 +149,8 @@ export default class BtcWallet implements ICryptoWallet {
     }
 
     doublesha256(msg){
-        return '';
+        const hash = m => crypto.createHash('sha256').update(m).digest('hex');
+        return hash(hash(msg));
     }
 
     recoverPublicKey(msg, sig) {

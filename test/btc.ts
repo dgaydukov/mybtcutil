@@ -14,12 +14,12 @@ describe('Bitcoin test', ()=>{
         const index = '123';
         const derivedPrivateKey = '6a13202e1c7d39b9df8a8a5bebe839d6e96cf8aa45be772da14d4d55f35b5a72';
         const wallet = storage.deriveWallet(index, masterPrivateKey);
-        assert.equal(wallet.privateKey, derivedPrivateKey, `Private keys don't match`)
+        assert.equal(wallet.privateKeyHex, derivedPrivateKey, `Private keys don't match`)
     });
 
     it('Should generate keypair', ()=>{
         const wallet = storage.generateWallet();
-        assert.equal(wallet.privateKey.length, 64, `Private key has incorrect length`);
+        assert.equal(wallet.privateKeyHex.length, 64, `Private key has incorrect length`);
         assert.equal(wallet.publicKey.length, 66, `Public key has incorrect length`);
         assert.equal(wallet.address.length, 34, `Address has incorrect length`);
     });
@@ -66,5 +66,5 @@ describe('Bitcoin test', ()=>{
         assert.equal(encrypted.address, address, `Encrypted address doesn't match`);
         const decrypted = storage.decryptWallet(encrypted, password);
         assert.equal(decrypted, privateKey, `Decrypted private key doesn't match to initial private key`);
-    })
+    });
 });
